@@ -329,9 +329,8 @@ body {
   }
 
   &__nav {
+    display: inline-block;
     @media screen and (min-width: 576px) {
-      display: inline-block;
-
       &--collapsed {
         display: inline-block;
       }

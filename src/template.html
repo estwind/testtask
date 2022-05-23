@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 
 <body>
@@ -27,11 +26,12 @@
                         </ul>
                     </nav>
                     <a href="/" class="navbar__cart"><img src="./images/cart.svg" /></a>
-                
-                <button ng-class="{'navbar__toggler': true, 'navbar__toggler--active': !isOpen}" class="navbar__toggler" type="button" ng-click="toggleMenu()">
-                    <span class="navbar__toggler-inner"></span>
-                </button>
-            </div>
+
+                    <button ng-class="{'navbar__toggler': true, 'navbar__toggler--active': !isOpen}"
+                        class="navbar__toggler" type="button" ng-click="toggleMenu()">
+                        <span class="navbar__toggler-inner"></span>
+                    </button>
+                </div>
             </div>
             <div class="jumbotron__header">
                 <h1 class="jumbotron__header-title">Our clothing, your comfort</h1>

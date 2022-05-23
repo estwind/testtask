@@ -1,4 +1,7 @@
+"use strict";
 import("./main.scss");
+var angular = require("./../node_modules/angular");
+
 var app = angular.module("testTask", []);
 
 app.controller("productsCtrl", [
