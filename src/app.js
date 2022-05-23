@@ -69,7 +69,7 @@ app.controller("productsCtrl", [
     };
 
     $scope.clearFilter = (clearObj) => {
-      for ([key, value] of Object.entries(clearObj)) {
+      for (let [key, value] of Object.entries(clearObj)) {
         clearObj[key] = false;
       }
     };
