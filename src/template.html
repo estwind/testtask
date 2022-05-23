@@ -1,0 +1,109 @@
+<html ng-app="testTask">
+
+<head>
+    <title>testtask</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <main ng-controller="scrollController">
+        <header class="jumbotron">
+            <div class="navbar container" ng-controller="navBarController">
+                <a class="navbar__brand" href="/">
+                    <img src="./images/logo.png" alt="company logo" />
+                </a>
+                <div>
+                    <nav ng-class="{'navbar__nav': true, 'navbar__nav--collapsed': isOpen}">
+                        <ul class="navbar__list">
+                            <li><a href="/" class="navbar__list-link">Home</a></li>
+                            <li><a href="#products" class="navbar__list-link">Products</a></li>
+                        </ul>
+                    </nav>
+                    <a href="/" class="navbar__cart"><img src="./images/cart.svg" /></a>
+                
+                <button ng-class="{'navbar__toggler': true, 'navbar__toggler--active': !isOpen}" class="navbar__toggler" type="button" ng-click="toggleMenu()">
+                    <span class="navbar__toggler-inner"></span>
+                </button>
+            </div>
+            </div>
+            <div class="jumbotron__header">
+                <h1 class="jumbotron__header-title">Our clothing, your comfort</h1>
+                <p class="jumbotron__header-subtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <button class="scroll-button" ng-click="scrollTo()">
+                <img class="scroll-button__img" src="./images/shevron.svg" />
+            </button>
+        </header>
+        <section id="products" class="products" ng-controller="productsCtrl">
+            <div class="products__filter">
+                <form class="container products__filter-form">
+                    <div>
+                        <label ng-repeat="(key, value) in showCategory" class="checkbox">{{key}}
+                            <input class="checkbox__input" name="{{key}}" type="checkbox" ng-model="showCategory[key]">
+                            <span class="checkbox__checkmark"></span>
+                        </label>
+                    </div>
+                    <button class="products__filter-clear" ng-click="clearFilter(showCategory)">see all
+                        prodRobotoucts</button>
+                </form>
+            </div>
+            <div class="products__list container">
+                <div class="grid-row">
+                    <div class="grid-col grid-col-xl-8 grid-col-lg-8 grid-col-md-12 grid-col-sm-24 grid-col-xs-24"
+                        ng-repeat="item in data.items | filter : typeFilter">
+                        <div class="products__item">
+                            <select class="products__item-select">
+                                <option ng-repeat="option in item.options" value="{{option}}">{{option}}</option>
+                            </select>
+                            <img ng-src="{{'./images/' + item.img + '.png'}}" />
+                            <div class="products__item-footer">
+                                <span class="products__item-name">{{item.name}}</span>
+                                <span class="products__item-price">{{item.price}}&#8364;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="info">
+            <div class="container">
+                <img class="info__img" src="./images/twitter.svg" />
+                <span>“ E-commerce psd theme available ”</span>
+            </div>
+        </div>
+        </div>
+        <footer class="footer" ng-controller="menuCtrl">
+            <div class="container">
+                <div class="grid-row align-center">
+                    <div class="grid-col grid-col-xl-12 grid-col-lg-12 grid-col-md-12 grid-col-sm-24 grid-col-xs-24">
+                        <div class="footer__title">Trekking</div>
+                        <p class="footer__subtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="grid-col grid-col-xl-12 grid-col-lg-12 grid-col-md-12 grid-col-sm-24 grid-col-xs-24">
+                        <div class="footer__item-right">
+                            <nav class="footer__nav">
+                                <a ng-repeat="item in data.footerMenu" href="{{item.link}}" title="{{item.title}}"
+                                    class="footer__nav-item">
+                                    {{item.name}}
+                                </a>
+                            </nav>
+                            <div class="footer__copyright">Design by gianluca cosetta</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>
